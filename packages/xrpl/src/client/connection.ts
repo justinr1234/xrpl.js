@@ -13,6 +13,11 @@ import {
 } from '../errors'
 import { BaseRequest } from '../models/methods/baseMethod'
 
+if (typeof TextDecoder === 'undefined') {
+  global.TextEncoder = require('util').TextEncoder
+  global.TextDecoder = require('util').TextDecoder
+}
+
 import ConnectionManager from './ConnectionManager'
 import ExponentialBackoff from './ExponentialBackoff'
 import RequestManager from './RequestManager'
